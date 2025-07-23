@@ -12,7 +12,7 @@ export default function AuthLayout({
   const { handleLogout } = useAuth();
 
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col h-screen">
       <header className="flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold">Mecanizou</h1>
         <div className="flex items-center gap-4">
