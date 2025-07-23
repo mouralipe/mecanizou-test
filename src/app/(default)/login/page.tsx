@@ -1,6 +1,5 @@
 'use client';
 
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 
@@ -14,37 +13,42 @@ export default function Login() {
     e.preventDefault();
 
     handleLogin(user, password);
+
+    setUser('');
+    setPassword('');
   };
 
   return (
-    <div>
-      <ThemeToggle />
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Usuário:
+    <div className="h-full flex items-center justify-center">
+      <main className="flex flex-col items-center justify-center gap-4">
+        <h1 className="text-2xl font-bold">Mecanizou</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div>
             <input
               type="text"
               value={user}
               onChange={(e) => setUser(e.target.value)}
+              placeholder="Digite seu usuário"
               required
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Senha:
+          </div>
+          <div>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Digite sua senha"
               required
             />
-          </label>
-        </div>
-        <button type="submit">Entrar</button>
-      </form>
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded-md"
+          >
+            Entrar
+          </button>
+        </form>
+      </main>
     </div>
   );
 }
