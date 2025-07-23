@@ -1,5 +1,6 @@
 'use client';
 
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 
@@ -17,6 +18,7 @@ export default function Login() {
 
   return (
     <div>
+      <ThemeToggle />
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
