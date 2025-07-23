@@ -15,13 +15,6 @@ export const useThemeStore = create<ThemeStore>()(
       theme: 'light',
       setTheme: (theme: Theme) => {
         set({ theme });
-        if (typeof document !== 'undefined') {
-          if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        }
       },
       toggleTheme: () => {
         const currentTheme = get().theme;
@@ -31,15 +24,6 @@ export const useThemeStore = create<ThemeStore>()(
     }),
     {
       name: 'theme-storage',
-      onRehydrateStorage: () => (state) => {
-        if (state && typeof document !== 'undefined') {
-          if (state.theme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        }
-      },
     }
   )
 );
