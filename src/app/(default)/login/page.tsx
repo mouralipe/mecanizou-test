@@ -1,5 +1,7 @@
 'use client';
 
+import { Button } from '@/components/Button';
+import { Input } from '@/components/Input';
 import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 
@@ -21,10 +23,10 @@ export default function Login() {
   return (
     <div className="h-full flex items-center justify-center">
       <main className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Mecanizou</h1>
+        <h1 className="text-2xl font-bold">Login</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <input
+            <Input
               type="text"
               value={user}
               onChange={(e) => setUser(e.target.value)}
@@ -33,7 +35,7 @@ export default function Login() {
             />
           </div>
           <div>
-            <input
+            <Input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -41,12 +43,7 @@ export default function Login() {
               required
             />
           </div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded-md"
-          >
-            Entrar
-          </button>
+          <Button type="submit">Entrar</Button>
         </form>
       </main>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/Button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -16,7 +17,9 @@ export default function AuthLayout({
         <h1 className="text-2xl font-bold">Mecanizou</h1>
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <button onClick={handleLogout}>Sair</button>
+          <Button variant="icon" onClick={handleLogout}>
+            Sair
+          </Button>
         </div>
       </header>
 
