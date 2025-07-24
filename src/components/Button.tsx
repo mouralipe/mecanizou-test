@@ -10,7 +10,7 @@ export function Button({
 }: ButtonProps) {
   if (variant === 'icon') {
     return (
-      <button className={`cursor-pointer`} {...props}>
+      <button className="cursor-pointer" {...props}>
         {children}
       </button>
     );
