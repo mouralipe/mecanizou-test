@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ThemeToggle Component matches snapshot with dark theme 1`] = `
+<button
+  aria-label="Mudar para tema claro"
+  class="cursor-pointer"
+>
+  🌞
+</button>
+`;
+
+exports[`ThemeToggle Component matches snapshot with light theme 1`] = `
+<button
+  aria-label="Mudar para tema escuro"
+  class="cursor-pointer"
+>
+  🌙
+</button>
+`;

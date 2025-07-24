@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Input Component matches snapshot for basic input 1`] = `
+<input
+  class="border border-gray-300 rounded-md p-2"
+/>
+`;
+
+exports[`Input Component matches snapshot for input with props 1`] = `
+<input
+  class="border border-gray-300 rounded-md p-2"
+  placeholder="Test placeholder"
+  readonly=""
+  type="email"
+  value="test@example.com"
+/>
+`;

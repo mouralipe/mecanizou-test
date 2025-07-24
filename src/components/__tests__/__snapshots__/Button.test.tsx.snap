@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Button Component matches snapshot for default variant 1`] = `
+<button
+  class="bg-blue-500 px-3 py-2 border border-gray-300 dark:border-gray-600 text-white rounded-md cursor-pointer"
+>
+  Default Button
+</button>
+`;
+
+exports[`Button Component matches snapshot for icon variant 1`] = `
+<button
+  class="cursor-pointer"
+>
+  🎯
+</button>
+`;
+
+exports[`Button Component matches snapshot for outline variant 1`] = `
+<button
+  class="cursor-pointer px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md disabled:opacity-50"
+>
+  Outline Button
+</button>
+`;
