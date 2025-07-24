@@ -11,3 +11,7 @@ html.dark {
 body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
+
+* {
+  @apply transition-colors duration-200;
+}
