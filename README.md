@@ -12,6 +12,8 @@
 
 [mecanizou-test.vercel.app](mecanizou-test.vercel.app)
 
+---
+
 ## 🚀 Setup e Execução
 
 ### Pré-requisitos
