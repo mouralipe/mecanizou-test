@@ -10,7 +10,7 @@
 
 ## Link da aplicação em produção
 
-[mecanizou-test.vercel.app](mecanizou-test.vercel.app)
+[https://mecanizou-test.vercel.app](https://mecanizou-test.vercel.app)
 
 ---
 
