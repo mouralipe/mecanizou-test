@@ -1,22 +1,19 @@
 'use client';
 
 import { useThemeStore } from '@/stores/themeStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const { theme, setTheme } = useThemeStore();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (typeof document !== 'undefined') {
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-  }, [theme]);
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+
     const hasStoredTheme = localStorage.getItem('theme-storage');
 
     if (!hasStoredTheme) {
@@ -25,7 +22,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       ).matches;
       setTheme(prefersDark ? 'dark' : 'light');
     } else {
-      // Se há tema salvo, garante que a classe CSS esteja aplicada
       try {
         const parsed = JSON.parse(hasStoredTheme);
         const savedTheme = parsed.state?.theme;
@@ -39,7 +35,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setTheme(prefersDark ? 'dark' : 'light');
       }
     }
-  }, [setTheme]);
+  }, [mounted, setTheme]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme, mounted]);
 
   return <>{children}</>;
 }
