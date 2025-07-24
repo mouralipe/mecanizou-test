@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/Button';
 import { useProducts } from '@/hooks/useProducts';
+import { useTheme } from '@/hooks/useTheme';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -21,6 +22,8 @@ export default function Produtos() {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+
+  const { isDark } = useTheme();
 
   const { loadProducts } = useProducts();
 
@@ -66,9 +69,11 @@ export default function Produtos() {
           {currentProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group hover:scale-[1.02] hover:border-gray-200 dark:hover:border-gray-600"
+              className={`${isDark ? 'bg-gray-800 border-gray-700 hover:border-gray-600' : 'bg-white border-gray-100 hover:border-gray-200'} rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border group hover:scale-[1.02]`}
             >
-              <div className="relative h-48 w-full bg-gray-50 dark:bg-gray-700 overflow-hidden">
+              <div
+                className={`relative h-48 w-full ${isDark ? 'bg-gray-700' : 'bg-gray-50'} overflow-hidden`}
+              >
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -80,7 +85,7 @@ export default function Produtos() {
                     target.style.display = 'none';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+
                 {product.stock === 0 && (
                   <div className="absolute inset-0 bg-gray-900/80 flex items-center justify-center">
                     <span className="text-white font-semibold text-lg">
@@ -90,18 +95,24 @@ export default function Produtos() {
                 )}
               </div>
 
-              <div className="p-6 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-800 dark:to-gray-800">
+              <div className={`p-6 ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-200">
+                  <h3
+                    className={`text-xl font-bold mb-2 ${isDark ? 'text-white group-hover:text-blue-300' : 'text-gray-800 group-hover:text-blue-700'} transition-colors duration-200`}
+                  >
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2 leading-relaxed">
+                  <p
+                    className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-sm mb-3 line-clamp-2 leading-relaxed`}
+                  >
                     {product.description}
                   </p>
                   {product.stock > 0 && (
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-xs text-green-600 dark:text-green-400 font-medium">
+                      <span
+                        className={`text-xs ${isDark ? 'text-green-400' : 'text-green-600'} font-medium`}
+                      >
                         {product.stock} em estoque
                       </span>
                     </div>
@@ -110,7 +121,9 @@ export default function Produtos() {
 
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-200">
+                    <span
+                      className={`text-2xl font-bold ${isDark ? 'text-blue-400 group-hover:text-blue-300' : 'text-blue-600 group-hover:text-blue-700'} transition-colors duration-200`}
+                    >
                       R$ {product.price.toFixed(2)}
                     </span>
                   </div>
@@ -160,7 +173,9 @@ export default function Produtos() {
           </div>
         )}
 
-        <div className="text-center mt-4 text-gray-600 dark:text-gray-400">
+        <div
+          className={`text-center mt-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+        >
           Mostrando {startIndex + 1} a {Math.min(endIndex, products.length)} de{' '}
           {products.length} produtos
         </div>
