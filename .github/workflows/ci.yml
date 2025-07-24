@@ -80,7 +80,7 @@ jobs:
       - name: Executar testes E2E
         run: |
           npm start &
-          npx wait-on http://localhost:3000
+          sleep 30
           npm run e2e
         env:
           CYPRESS_baseUrl: http://localhost:3000
