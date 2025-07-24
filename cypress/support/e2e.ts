@@ -1,5 +1,3 @@
-// cypress/support/e2e.ts
-
 // Import commands.ts using ES2015 syntax:
 import './commands';
 
