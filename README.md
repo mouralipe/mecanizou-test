@@ -8,6 +8,10 @@
 - [Próximos Passos](#-próximos-passos-para-produção)
 - [Scripts Disponíveis](#-scripts-disponíveis)
 
+## Link da aplicação em produção
+
+[mecanizou-test.vercel.app](mecanizou-test.vercel.app)
+
 ## 🚀 Setup e Execução
 
 ### Pré-requisitos
